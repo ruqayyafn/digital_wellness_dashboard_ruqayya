@@ -1,0 +1,30 @@
+<div class="alert alert-success">
+Scenario done! Follow up with some educational pop-ups
+</div>
+
+<div class="container text-center mt-3">
+<!-- Centered title -->
+<h2><%= @scenario.title %></h2>
+</div>
+
+<body class="bg-success text-white">
+<div class="container mt-3">
+<!-- Card with white background and black text -->
+<div class="card bg-white text-black">
+  <div class="card-body">        
+    <% @info.each do |paragraph| %>
+      <div class="educational-paragraph">
+        <h3><%= paragraph.title %></h3>
+        <p><%= paragraph.content %></p>
+      </div>
+    <% end %>
+  </div>
+</div>
+</div>
+</body>
+
+
+<hr>
+<div class="mt-3 d-flex justify-content-center">
+<%= link_to 'Scenarios', scenarios_path, class: 'btn btn-dark' %>
+</div>

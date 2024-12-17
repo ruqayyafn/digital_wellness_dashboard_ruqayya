@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  story_part: one
+  choice_text: MyString
+  evaluation_text: MyText
+
+two:
+  story_part: two
+  choice_text: MyString
+  evaluation_text: MyText

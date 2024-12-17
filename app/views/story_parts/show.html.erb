@@ -1,0 +1,34 @@
+<% if flash[:notice] %>
+  <div class="alert alert-success">
+    <%= flash[:notice] %> <!-- Display the evaluation_text from the selected choice -->
+  </div>
+<% end %>
+
+<div class="container mt-5 d-flex justify-content-center">
+  <div class="card text-center" style="width: 36rem;">
+    <div class="card-body">
+      <h2 class="card-title">Part <%= @story_part.part_number %></h2>
+      <p class="card-text"><%= @story_part.content %></p>
+
+      <% @story_part.choices.each do |choice| %>
+        <%= form_with model: @story_part, url: scenario_story_part_path(@story_part.scenario, @story_part), method: :put, local: true do |f| %>
+          <div class="form-group mb-3">
+            <%= f.label :choice, choice.choice_text, class: 'form-label' %>
+            <%= f.hidden_field :choice_id, value: choice.id %>
+            <%= f.hidden_field :scenario_id, value: @story_part.scenario.id %>
+            <%= f.submit "Select", class: 'btn btn-sm btn-success mt-2' %>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+
+<% if @show_learn_more_button %>
+  <!-- Learn More Button outside the card -->
+  <hr>
+  <div class="container mt-3 d-flex justify-content-center">
+    <%= link_to 'Learn More', scenario_popup_path(@story_part.scenario), class: 'btn btn-outline-success' %>
+  </div>
+<% end %>

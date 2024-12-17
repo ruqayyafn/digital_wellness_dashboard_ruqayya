@@ -1,0 +1,16 @@
+<div class="container d-flex justify-content-center align-items-center vh-100">
+  <div class="card">
+    <div class="card-body text-center">
+      <h1 class="card-title"><%= @scenario.title %></h1>
+      <p class="card-text"><%= @scenario.description %></p>
+      <div class="mt-4">
+        <%= link_to 'Start Story', scenario_story_part_path(@scenario, @story_part), class: 'btn btn-success' %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<hr>
+<div class="mt-3 d-flex justify-content-center">
+  <%= link_to 'Back', scenarios_path, class: 'btn btn-outline-success' %>
+</div>
